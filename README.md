@@ -1,16 +1,41 @@
-# CDP Support Chatbot
+CDP Support Chatbot
+A chatbot designed to answer "how-to" questions related to Customer Data Platforms (CDPs) like Segment, mParticle, Lytics, and Zeotap. The chatbot extracts relevant information from the official documentation of these platforms to guide users on performing specific tasks or achieving outcomes.
 
-## Overview
-The **CDP Support Chatbot** is a Flask-based chatbot designed to assist users with questions related to Customer Data Platforms (CDPs) such as **Segment, mParticle, Lytics, and Zeotap**. The chatbot processes user queries using NLP and retrieves relevant documentation to provide accurate responses.
+Features
+Answer "How-to" Questions:
 
-## Features
-- **Natural Language Processing (NLP):** Uses spaCy to extract intent and CDP platform from user queries.
-- **Document Indexing & Search:** Utilizes Whoosh to index and retrieve relevant documentation.
-- **Flask Backend:** Handles user requests and returns chatbot responses.
-- **Interactive Frontend:** A simple HTML/CSS/JS interface for chat interactions.
+Provides step-by-step instructions for tasks within Segment, mParticle, Lytics, and Zeotap.
 
-## Project Structure
-```
+Example: "How do I set up a new source in Segment?"
+
+Extract Information from Documentation:
+
+Retrieves relevant information from the official documentation of the CDPs.
+
+Handle Variations in Questions:
+
+Understands different phrasings of the same question.
+
+Handles irrelevant questions gracefully.
+
+Bonus Features:
+
+Cross-CDP Comparisons: Answers questions about differences between platforms.
+
+Advanced "How-to" Questions: Provides guidance on advanced configurations and integrations.
+
+Setup Instructions
+1. Prerequisites
+Python 3.7 or higher
+
+Install required libraries:
+
+bash
+Copy
+pip install flask spacy whoosh requests beautifulsoup4
+python -m spacy download en_core_web_sm
+2. Project Structure
+Copy
 cdp-chatbot/
 │
 ├── app.py                  # Flask backend
@@ -23,70 +48,78 @@ cdp-chatbot/
 ├── indexer/                # Document indexing logic
 │   └── search.py           # Document search logic
 └── README.md               # Project documentation
-```
+3. Running the Chatbot
+Clone the repository or download the project files.
 
-## Installation & Setup
-### Prerequisites
-Ensure you have **Python 3.x** installed along with `pip`.
+Navigate to the project directory:
 
-### Steps
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/yourusername/cdp-chatbot.git
-   cd cdp-chatbot
-   ```
-2. **Create a virtual environment (optional but recommended):**
-   ```bash
-   python -m venv venv
-   source venv/bin/activate   # On macOS/Linux
-   venv\Scripts\activate      # On Windows
-   ```
-3. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. **Download the NLP model:**
-   ```bash
-   python -m spacy download en_core_web_sm
-   ```
-5. **Run the Flask app:**
-   ```bash
-   python app.py
-   ```
-6. **Access the chatbot:**
-   Open your browser and go to: [http://127.0.0.1:5000](http://127.0.0.1:5000)
+bash
+Copy
+cd cdp-chatbot
+Run the Flask app:
 
-## Usage
-1. Enter a question related to a CDP platform (e.g., *"How do I set up tracking in Segment?"*).
-2. The chatbot processes the query and searches indexed documentation.
-3. It returns a relevant response based on the retrieved information.
+bash
+Copy
+python app.py
+Open your browser and navigate to http://127.0.0.1:5000.
 
-## Core Components
-### 1. **Flask Backend (`app.py`)**
-- Routes requests to the chatbot interface (`index.html`).
-- Processes user questions using NLP.
-- Searches indexed documentation for relevant answers.
+Usage
+1. Asking Questions
+Type your question in the input box and click "Send".
 
-### 2. **NLP Processing (`nlp/processor.py`)**
-- Uses spaCy to extract intent and CDP platform from user queries.
+Example questions:
 
-### 3. **Document Indexing & Search (`indexer/search.py`)**
-- Uses Whoosh to create an index and search for relevant documentation.
+"How do I set up a new source in Segment?"
 
-### 4. **Frontend (`templates/index.html`)**
-- Simple UI for chatbot interaction using JavaScript to handle user input and responses.
+"How can I create a user profile in mParticle?"
 
-## Future Enhancements
-- Improve NLP intent detection.
-- Expand support for more CDP platforms.
-- Enhance the frontend UI/UX with a chatbot widget.
-- Implement a feedback mechanism to improve response accuracy.
+"How do I build an audience segment in Lytics?"
 
-## Contributing
-1. Fork the repository.
-2. Create a new branch: `git checkout -b feature-branch`
-3. Make your changes and commit: `git commit -m "Added new feature"`
-4. Push to the branch: `git push origin feature-branch`
-5. Submit a pull request.
+"How can I integrate my data with Zeotap?"
 
+2. Cross-CDP Comparisons
+Ask questions comparing functionalities across platforms:
 
+"How does Segment's audience creation process compare to Lytics'?"
+
+3. Advanced Questions
+Ask advanced "how-to" questions:
+
+"How do I set up server-side tracking in Segment?"
+
+"How can I use mParticle's identity resolution features?"
+
+4. Irrelevant Questions
+The chatbot will respond to irrelevant questions with a fallback message:
+
+Example: "Which movie is releasing this week?" → "Sorry, I can only answer questions related to Segment, mParticle, Lytics, and Zeotap."
+
+Technologies Used
+Backend: Flask (Python)
+
+Frontend: HTML, CSS, JavaScript
+
+NLP: spaCy
+
+Document Indexing: Whoosh
+
+Data Sources: Official documentation of Segment, mParticle, Lytics, and Zeotap.
+
+Contributing
+Contributions are welcome! If you'd like to improve the chatbot, follow these steps:
+
+Fork the repository.
+
+Create a new branch for your feature or bugfix.
+
+Submit a pull request with a detailed description of your changes.
+
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+Contact
+For questions or feedback, please contact:
+
+Bathala Akshay
+
+Email: akshay.bathala20@gmail.com
